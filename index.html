@@ -437,6 +437,35 @@
             </div>
         </div>
     </div>
+
+    <!-- Off canvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">My PlantIt cart</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body" id="cart">
+
+            <!--<div class="d-flex align-items-center border-bottom mt-3">
+        <img
+          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHEhUSBwgWEhESExcVFhgVFiQZEhcYFR8WFxcWGhohISggGyYmGxYXJTEtMSkrLi8vFyAzRDMsOCktOisBCgoKDg0NGBAPGzcfHx0tKy0tLS0tKy0wLS0tLSstLS0tLTUtNS0tLSstLS0rMC0rLS0tKzcrLjgtLSswLS0tN//AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAABgIDBAUHCAH/xABAEAACAQMDAgMFBAcGBgMAAAABAgADBBEFEiEGMRMiQQcyUWFxFEKBoRUjM1JikbFDcoKSk8ElU4PC0fAWFyT/xAAXAQEBAQEAAAAAAAAAAAAAAAAAAQID/8QAIhEBAQACAAYDAQEAAAAAAAAAAAECEQMSEzFBUSFhoZFS/9oADAMBAAIRAxEAPwDuMREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQESlmVOXbH1mLW1bTaH7fUKS/3qij+pgZkTS1erOnqPL6zR744cNyO44z8RMU9ddOHPhX5fHfZSdu/bsvyP8o0JJEidX2g6LTGdlXHPvJ4ecd8eIVzMel7Q7a63Gy0i4dEOGc7Qg9e4Y54HoCZdCaRINde0DwAP/wAKAuodQ9wqkq3KnBGRkfHH4TV1PaPfc+KtrQ/dBc1nPzwhAH4kfjJodNicluevNTrqPA1EfxGjTprk5PlTxKjFeO5Kn1IBkev+rriqT+kd/qMmpUenz2IXeiggeu09siB2u91zSbAE3mpUkC99zgEZ4HGc95qq3XvTFA4raoAcA/s37HsfdnC9R1upUVRZ3zqoJAQbgxJySzMXYsc4A5PHYLjnLvbWx0wOl3cB6u7awDr4vYbi7FXFLDEjaAXJByQMCB3Gz6x6bvSFt9ao7j2DPtY/QNgmbwEHsZ5ivLizChV00UwyghvM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"
+          alt="" class="cart-image" />
+        <div class="ms-3">
+          <p class="fw-bold mb-0">
+            <span>Lorem ipsum dolor sit</span>
+            <span class="fw-normal text-danger">x1</span>
+          </p>
+          <small class="text-muted">product priceeeeee</small>
+           text-muted: làm chữ thành màu xám
+    </div> -->
+            <!-- <button class="btn btn-outline-dark ms-auto">&times;</button> -->
+        </div>
+
+        <button id="purchaseBtn" class="purchase-btn">Go
+            Purchase!</button>
+    </div>
+    </div>
+
     <!-- Footer -->
     <div class="footer-dark plantit-footer">
         <footer>
