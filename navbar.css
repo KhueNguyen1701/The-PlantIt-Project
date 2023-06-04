@@ -201,3 +201,11 @@
     background: linear-gradient(#5A8F7B, #d0eacc);
     border-radius: 10px;
 }
+
+#avatar {
+    width: 30px;
+    height: 30px;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+}

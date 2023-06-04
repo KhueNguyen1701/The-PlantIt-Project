@@ -1,3 +1,68 @@
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+import { app } from './firebase.js'
+
+const auth = getAuth()
+
+
+//---------- LẤY THÔNG TIN NGƯỜI DÙNG HIỆN TẠI ----------
+// Khai báo user
+const greeting = document.getElementById('greeting')
+// Khai báo nút Logout
+const logoutBtn = document.getElementById('logout-btn')
+console.log(logoutBtn)
+// Khai báo icon user
+const loginBtn = document.getElementById('login-btn')
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        console.log(user)
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+
+        if (user) {
+            greeting.innerHTML = user.email
+
+            // Ẩn nút login
+            loginBtn.classList.add('d-none')
+
+            // Hiện nút Logout
+            logoutBtn.classList.remove('d-none')
+
+            // Hiện avatar
+            const avatarUrl = user.photoURL || './main imgs/default-avatar.jpg'
+            avatar.setAttribute('src', avatarUrl)
+            avatar.classList.remove('d-none')
+        }
+    } else {
+        // User is signed out
+        // Hiện nút login
+        loginBtn.classList.remove('d-none')
+
+        // Ẩn logout
+        logoutBtn.classList.add('d-none')
+
+        // Xoá user
+        greeting.innerHTML = ''
+
+        // Ẩn avatar
+        avatar.classList.add('d-none')
+    }
+
+});
+
+//---------- CHỨC NĂNG ĐĂNG XUẤT ----------
+
+logoutBtn.onclick = function () {
+    console.log('Hello')
+    signOut(auth).then(() => {
+        // Sign-out successful.
+        window.location.href = './earthday-login/'
+    }).catch((error) => {
+        // An error happened.
+    });
+}
+
+
+
 // Our Partners
 tippy('#partner-1', {
     content: "Earthday.ca non-profit organization that inspires and supports people across Canada to connect with nature and build resilient communities. Their website provides information about their programs, initiatives, and events related to environmental education, conservation, and sustainability.",

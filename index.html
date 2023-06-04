@@ -55,14 +55,10 @@
                     </li>
                 </ul>
                 <div class="d-flex align-items-center me-4">
-                    <i id="greeting"></i>
-                    <div id="icon-user" style="cursor: pointer" class="mx-4">
-                        <a href="./earthday-login/earthday-login.html" class="text-dark">
-                            <i class="fa-solid fa-user fs-5"></i>
-
-                        </a>
-                    </div>
-                    <button id="logout-btn" class="btn btn-dark btn-sm mx-4 d-none">Logout</button>
+                    <i id="greeting" class="me-3"></i>
+                    <a href="./profile/profile.html"> <img id="avatar" src="" class="me-3 d-none"></a>
+                    <a id="login-btn" class="btn btn-dark btn-sm mx-4 d-none" href="./earthday-login/">Login</a>
+                    <button id="logout-btn" class="text-white btn btn-dark btn-sm mx-4 d-none">Logout</button>
                     <div style="cursor: pointer" class="position-relative" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                         <i class="fa-solid fa-cart-shopping fs-5"></i>
@@ -82,7 +78,7 @@
 
     <!-- Homepage main imgage -->
     <div class="">
-        <img class="homepage-main-img" src="./main imgs/homepage_pics/bg_letsplant.png">
+        <img class="homepage-main-img" src="./main imgs/homepage_pics/bg-pic.png">
     </div>
 
 
@@ -533,8 +529,8 @@
 
     <!-- Sweet alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="earthday.js"></script>
-    <script src="/earthday - products/ed.products.js"></script>
+    <script type="module" src="earthday.js"></script>
+    <!-- <script type="module" src="/earthday - products/ed.products.js"></script> -->
 </body>
 
 </html>

@@ -1,13 +1,15 @@
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
 import { app } from "../firebase.js";
 import { showToast } from "../utils/showToast.js"
 const auth = getAuth();
+const provider = new GoogleAuthProvider();
 
 const userList = JSON.parse(localStorage.getItem('userList')) || []
 
 const form = document.getElementById('form')
 const email = document.getElementById('email')
 const password = document.getElementById('password')
+const googleBtn = document.getElementById('google-btn')
 
 form.onsubmit = function (event) {
     event.preventDefault()
@@ -26,6 +28,29 @@ form.onsubmit = function (event) {
         });
 }
 
+// Login with google
+googleBtn.onclick = function () {
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            // The signed-in user info.
+            const user = result.user;
+            console.log(user)
+            // IdP data available using getAdditionalUserInfo(result)
+            // ...
+        }).catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // The email of the user's account used.
+            const email = error.customData.email;
+            // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+        });
+}
 
 
 // const userList = JSON.parse(localStorage.getItem('userList')) || []

@@ -20,3 +20,18 @@ body {
     width: 100vw;
     height: 100vh;
 }
+
+#google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#google-btn img {
+    width: 30px;
+    height: 30px;
+    display: block;
+    object-fit: cover;
+    margin-right: 16px;
+}

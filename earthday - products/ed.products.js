@@ -109,6 +109,7 @@ if (user) {
     // Hiện nút Logout
     logoutBtn.classList.remove('d-none')
 }
+
 // ------------ XU LY KHI NGUOI DUNG DA DANG XUAT -------------------
 
 logoutBtn.onclick = function () {
