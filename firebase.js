@@ -5,12 +5,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebas
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAM1FF_ZxCZX0571O8JZe6FIvNQnmFqvsY",
-    authDomain: "mindx-jsi02-app.firebaseapp.com",
-    projectId: "mindx-jsi02-app",
-    storageBucket: "mindx-jsi02-app.appspot.com",
-    messagingSenderId: "1021957968940",
-    appId: "1:1021957968940:web:0d90ad48c8218def892d89"
+    apiKey: "AIzaSyAmwoACc53a85LIAZ6F0cLBPxqTu5AXv_w",
+    authDomain: "mindx-plantit.firebaseapp.com",
+    projectId: "mindx-plantit",
+    storageBucket: "mindx-plantit.appspot.com",
+    messagingSenderId: "98151549021",
+    appId: "1:98151549021:web:c541692c6ed3d5a78c25b4"
 };
 
 // Initialize Firebase
