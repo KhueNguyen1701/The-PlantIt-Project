@@ -1,93 +1,107 @@
 import products from './earthday.data.js'
 
-// Hien thi danh sach san pham
-for (let product of products.data) {
-    // Tao va them class cho element card
-    const card = document.createElement('div')
-    card.classList.add('card', 'w-100', 'h-100')
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+import { collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+import { app, db } from '../firebase.js'
 
-    // Tao, them class cho img va gan gia tri cho thuoc tinh src
-    const image = document.createElement('img')
-    image.classList.add('card-img-top')
-    image.setAttribute('src', product.image[0])
+const auth = getAuth()
 
-    // ------------------- HAM XU LY DOI HINH KHI RE CHUOT VAO --------------
+// Test
+const querySnapshot = await getDocs(collection(db, "products",));
+querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    console.log(doc.data())
+    renderProduct(doc.data())
+});
 
-    image.onmouseover = function changeImage() {
-        image.setAttribute('src', product.image[1])
-    }
+// // Hien thi danh sach san pham
+// for (let product of products.data) {
+//     // Tao va them class cho element card
+//     const card = document.createElement('div')
+//     card.classList.add('card', 'w-100', 'h-100')
 
-    image.onmouseout = function changeImageBack() {
-        image.setAttribute('src', product.image[0])
-    }
+//     // Tao, them class cho img va gan gia tri cho thuoc tinh src
+//     const image = document.createElement('img')
+//     image.classList.add('card-img-top')
+//     image.setAttribute('src', product.image[0])
 
+//     // ------------------- HAM XU LY DOI HINH KHI RE CHUOT VAO --------------
 
-    // Tạo thẻ a
-    const imageWrapper = document.createElement('a')
-    imageWrapper.setAttribute('href', `./product.desc.html?id=${product.id}`)
-    imageWrapper.appendChild(image)
+//     image.onmouseover = function changeImage() {
+//         image.setAttribute('src', product.image[1])
+//     }
 
-    // Them img vao lam con cua card
-    card.appendChild(imageWrapper)
-
-    // Tao va them class cho element card body
-    const cardBody = document.createElement('div')
-    cardBody.classList.add('card-body', 'd-flex', 'flex-column')
-
-    // CHÈN ?ID SAU HREF
-    // Tao element name
-    const title = document.createElement('a')
-    title.setAttribute('href', `./product.desc.html?id=${product.id}`)
-    title.classList.add('card-title', 'mt-3', 'text-decoration-none', 'fs-5', 'fw-bold')
-    title.innerHTML = product.name
-
-    // Tao element price
-    const price = document.createElement('p')
-    price.classList.add('card-text', 'mt-auto')
-    price.innerHTML = product.price
-
-    // Tạo element rate
-    const rate = document.createElement('div')
-    rate.classList.add('small', 'mb-2')
-    for (let i = 1; i <= 5; i++) {
-        const rateStar = document.createElement('i')
-        rateStar.classList.add('fa-solid', 'fa-star')
-        rate.appendChild(rateStar)
-    }
-    const rateNumber = document.createElement('span')
-    rateNumber.innerHTML = ' (' + product.rate + ')'
-    rate.appendChild(rateNumber)
-
-    // Tao element button them vao gio
-    const addBtn = document.createElement('button')
-    addBtn.classList.add('btn', 'btn-success', 'w-100')
-    addBtn.innerHTML = 'Add to cart'
-
-    // Tham element title, price va button vao card body
-    cardBody.appendChild(title)
-    cardBody.appendChild(price)
-    cardBody.appendChild(rate)
-    cardBody.appendChild(addBtn)
+//     image.onmouseout = function changeImageBack() {
+//         image.setAttribute('src', product.image[0])
+//     }
 
 
-    // Tham element card body vao card
-    card.appendChild(cardBody)
+//     // Tạo thẻ a
+//     const imageWrapper = document.createElement('a')
+//     imageWrapper.setAttribute('href', `./product.desc.html?id=${product.id}`)
+//     imageWrapper.appendChild(image)
 
-    // Tao element wrapper va them card vao
-    const wrapper = document.createElement('div')
-    wrapper.classList.add('col-12', 'col-sm-6', 'col-md-4', 'col-lg-3', 'mt-4')
-    wrapper.appendChild(card)
+//     // Them img vao lam con cua card
+//     card.appendChild(imageWrapper)
 
-    // Them wrapper vao list
-    const list = document.getElementById('list')
-    list.appendChild(wrapper)
+//     // Tao va them class cho element card body
+//     const cardBody = document.createElement('div')
+//     cardBody.classList.add('card-body', 'd-flex', 'flex-column')
 
-    // Xu ly khi nguoi dung bam vao nut "Add to cart"
-    addBtn.onclick = function () {
-        handleAddToCart(product)
-    }
+//     // CHÈN ?ID SAU HREF
+//     // Tao element name
+//     const title = document.createElement('a')
+//     title.setAttribute('href', `./product.desc.html?id=${product.id}`)
+//     title.classList.add('card-title', 'mt-3', 'text-decoration-none', 'fs-5', 'fw-bold')
+//     title.innerHTML = product.name
 
-}
+//     // Tao element price
+//     const price = document.createElement('p')
+//     price.classList.add('card-text', 'mt-auto')
+//     price.innerHTML = product.price
+
+//     // Tạo element rate
+//     const rate = document.createElement('div')
+//     rate.classList.add('small', 'mb-2')
+//     for (let i = 1; i <= 5; i++) {
+//         const rateStar = document.createElement('i')
+//         rateStar.classList.add('fa-solid', 'fa-star')
+//         rate.appendChild(rateStar)
+//     }
+//     const rateNumber = document.createElement('span')
+//     rateNumber.innerHTML = ' (' + product.rate + ')'
+//     rate.appendChild(rateNumber)
+
+//     // Tao element button them vao gio
+//     const addBtn = document.createElement('button')
+//     addBtn.classList.add('btn', 'btn-success', 'w-100')
+//     addBtn.innerHTML = 'Add to cart'
+
+//     // Tham element title, price va button vao card body
+//     cardBody.appendChild(title)
+//     cardBody.appendChild(price)
+//     cardBody.appendChild(rate)
+//     cardBody.appendChild(addBtn)
+
+
+//     // Tham element card body vao card
+//     card.appendChild(cardBody)
+
+//     // Tao element wrapper va them card vao
+//     const wrapper = document.createElement('div')
+//     wrapper.classList.add('col-12', 'col-sm-6', 'col-md-4', 'col-lg-3', 'mt-4')
+//     wrapper.appendChild(card)
+
+//     // Them wrapper vao list
+//     const list = document.getElementById('list')
+//     list.appendChild(wrapper)
+
+//     // Xu ly khi nguoi dung bam vao nut "Add to cart"
+//     addBtn.onclick = function () {
+//         handleAddToCart(product)
+//     }
+
+// }
 
 // ------------ XU LY KHI NGUOI DUNG DA DANG NHAP -------------------
 const user = JSON.parse(localStorage.getItem('user')) || null
@@ -318,3 +332,91 @@ function backToTop() {
     document.documentElement.scrollTop = 0;
 }
 
+
+function renderProduct(product) {
+    // Tao va them class cho element card
+    const card = document.createElement('div')
+    card.classList.add('card', 'w-100', 'h-100')
+
+    // Tao, them class cho img va gan gia tri cho thuoc tinh src
+    const image = document.createElement('img')
+    image.classList.add('card-img-top')
+    image.setAttribute('src', product.image[0])
+
+    // ------------------- HAM XU LY DOI HINH KHI RE CHUOT VAO --------------
+
+    image.onmouseover = function changeImage() {
+        image.setAttribute('src', product.image[1])
+    }
+
+    image.onmouseout = function changeImageBack() {
+        image.setAttribute('src', product.image[0])
+    }
+
+
+    // Tạo thẻ a
+    const imageWrapper = document.createElement('a')
+    imageWrapper.setAttribute('href', `./product.desc.html?id=${product.id}`)
+    imageWrapper.appendChild(image)
+
+    // Them img vao lam con cua card
+    card.appendChild(imageWrapper)
+
+    // Tao va them class cho element card body
+    const cardBody = document.createElement('div')
+    cardBody.classList.add('card-body', 'd-flex', 'flex-column')
+
+    // CHÈN ?ID SAU HREF
+    // Tao element name
+    const title = document.createElement('a')
+    title.setAttribute('href', `./product.desc.html?id=${product.id}`)
+    title.classList.add('card-title', 'mt-3', 'text-decoration-none', 'fs-5', 'fw-bold')
+    title.innerHTML = product.name
+
+    // Tao element price
+    const price = document.createElement('p')
+    price.classList.add('card-text', 'mt-auto')
+    price.innerHTML = product.price
+
+    // Tạo element rate
+    const rate = document.createElement('div')
+    rate.classList.add('small', 'mb-2')
+    for (let i = 1; i <= 5; i++) {
+        const rateStar = document.createElement('i')
+        rateStar.classList.add('fa-solid', 'fa-star')
+        rate.appendChild(rateStar)
+    }
+    const rateNumber = document.createElement('span')
+    rateNumber.innerHTML = ' (' + product.rate + ')'
+    rate.appendChild(rateNumber)
+
+    // Tao element button them vao gio
+    const addBtn = document.createElement('button')
+    addBtn.classList.add('btn', 'btn-success', 'w-100')
+    addBtn.innerHTML = 'Add to cart'
+
+    // Tham element title, price va button vao card body
+    cardBody.appendChild(title)
+    cardBody.appendChild(price)
+    cardBody.appendChild(rate)
+    cardBody.appendChild(addBtn)
+
+
+    // Tham element card body vao card
+    card.appendChild(cardBody)
+
+    // Tao element wrapper va them card vao
+    const wrapper = document.createElement('div')
+    wrapper.classList.add('col-12', 'col-sm-6', 'col-md-4', 'col-lg-3', 'mt-4')
+    wrapper.appendChild(card)
+
+    // Them wrapper vao list
+    const list = document.getElementById('list')
+    list.appendChild(wrapper)
+
+    // Xu ly khi nguoi dung bam vao nut "Add to cart"
+    addBtn.onclick = function () {
+        handleAddToCart(product)
+    }
+
+}

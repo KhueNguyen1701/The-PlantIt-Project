@@ -11,7 +11,7 @@ let products = {
         {
             id: 2,
             name: 'REGIONAL PARK T- SHIRT - GREEN',
-            price: '650.000đ',
+            price: '650.000',
             image: ['products-imgs/regional_park_a.png', 'products-imgs/regional_park_b.png'],
             description: '',
             rate: 4.0,
@@ -19,7 +19,7 @@ let products = {
         {
             id: 3,
             name: 'CLOUDY SUNSET LINEN PIJAMA - PINK',
-            price: '1.025.000đ',
+            price: '1.025.000',
             image: ['products-imgs/cloudy_sunset_a.png', 'products-imgs/cloudy_sunset_b.png'],
             description: '',
             rate: 3.5,
@@ -27,7 +27,7 @@ let products = {
         {
             id: 4,
             name: 'SAGE GARDEN SILK PIJAMA - SAGE',
-            price: '1.025.000đ',
+            price: '1.025.000',
             image: ['products-imgs/sage_garden_a.png', 'products-imgs/sage_garden_b.png'],
             description: '',
             rate: 4.5,
@@ -43,7 +43,7 @@ let products = {
         {
             id: 6,
             name: 'ABSTRACT GRAPHIC ELEMENTS T - SHIRT - SAGE',
-            price: '550.000đ',
+            price: '550.000',
             image: ['products-imgs/abstract_graphics_a.png', 'products-imgs/abstract_graphics_b.png'],
             description: '',
             rate: 4.5,
@@ -51,7 +51,7 @@ let products = {
         {
             id: 7,
             name: 'PEACEFUL SEA SHORTS - NAVY',
-            price: '650.000đ',
+            price: '650.000',
             image: ['products-imgs/peaceful_sea_a.png', 'products-imgs/peaceful_sea_b.png'],
             description: '',
             rate: 4.2,
@@ -59,7 +59,7 @@ let products = {
         {
             id: 8,
             name: 'COTTON LINEN CINAMON SHIRT - BEIGE',
-            price: '750.000đ',
+            price: '750.000',
             image: ['products-imgs/cinamon_a.png', 'products-imgs/cinamon_b.png'],
             description: '',
             rate: 4.4,
@@ -67,7 +67,7 @@ let products = {
         {
             id: 9,
             name: 'MAPLE SYRUP VELVET PANTS - ORANGE',
-            price: '850.000đ',
+            price: '850.000',
             image: ['products-imgs/maple_syrup_a.png', 'products-imgs/maple_syrup_b.png'],
             description: '',
             rate: 4.5,
@@ -75,7 +75,7 @@ let products = {
         {
             id: 10,
             name: 'NIGHT ON SEINE PANTS - NAVY',
-            price: '750.000đ',
+            price: '750.000',
             image: ['products-imgs/night_on_seine_a.png', 'products-imgs/night_on_seine_b.png'],
             description: '',
             rate: 4.7,
@@ -83,7 +83,7 @@ let products = {
         {
             id: 11,
             name: 'BIODEGRADABLE COTTON SWABS - CARE',
-            price: '99.000đ',
+            price: '99.000',
             image: ['products-imgs/cotton_swab_a.png', 'products-imgs/cotton_swab_b.png'],
             description: '',
             rate: 4.6,
@@ -91,7 +91,7 @@ let products = {
         {
             id: 12,
             name: 'BAMBOO TOOTHBRUSH - CARE',
-            price: '99.000đ',
+            price: '99.000',
             image: ['products-imgs/bamboo_toothbrush_a.png', 'products-imgs/bamboo_toothbrush_b.png'],
             description: '',
             rate: 5.0,
@@ -99,7 +99,7 @@ let products = {
         {
             id: 13,
             name: 'ECO - FRIENDLY HANDMADE SOAP - CARE',
-            price: '150.000đ',
+            price: '150.000',
             image: ['products-imgs/handmade_soap_a.png', 'products-imgs/handmade_soap_b.png'],
             description: '',
             rate: 4.7,
@@ -107,7 +107,7 @@ let products = {
         {
             id: 14,
             name: 'SMELL OF NATURE SHAMPOO - CARE',
-            price: '250.000đ',
+            price: '250.000',
             image: ['products-imgs/nature_shampoo_a.png', 'products-imgs/nature_shampoo_b.png'],
             description: '',
             rate: 4.3,
@@ -115,7 +115,7 @@ let products = {
         {
             id: 15,
             name: 'FLOURIDE FREE PEPPERMINT TOOTHPASTE - CARE',
-            price: '250.000đ',
+            price: '250.000',
             image: ['products-imgs/peppermint_toothpaste_a.png', 'products-imgs/peppermint_toothpaste_b.png'],
             description: '',
             rate: 4.4,

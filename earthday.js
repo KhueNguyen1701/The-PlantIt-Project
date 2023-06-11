@@ -1,7 +1,15 @@
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
-import { app } from './firebase.js'
+import { collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+import { app, db } from './firebase.js'
 
 const auth = getAuth()
+
+// Test
+const querySnapshot = await getDocs(collection(db, "products",));
+querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    console.log(doc.id, " => ", doc.data());
+});
 
 
 //---------- LẤY THÔNG TIN NGƯỜI DÙNG HIỆN TẠI ----------

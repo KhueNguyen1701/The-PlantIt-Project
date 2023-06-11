@@ -21,10 +21,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/614/614694.png">
     <link rel="stylesheet" href="profile.css">
-    <title>PLant It</title>
+    <title>PLantIt Profile</title>
 </head>
 
-<body class="container">
+<body class="container bg-success-subtle mt-5">
+    <div class="d-flex justify-content-between">
+        <a href="../">Back Home</a>
+        <button id="logout-btn" class="btn btn-sm btn-dark">Log out</button>
+    </div>
     <div class="row mt-4">
         <div class="col-5">
             <img id="avatar" src="">
@@ -32,17 +36,19 @@
         <div class="col-7">
             <form id="profile-form">
                 <div class="mb-3">
-                    <label for="display-name" class="form-label">Name</label>
-                    <input type="text" class="form-control form-control-lg rounded-pill" id="display-name"
-                        placeholder="">
-                </div>
-                <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control form-control-lg rounded-pill" id="email" placeholder="">
+                    <input type="email" class="form-control form-control-lg rounded-pill" id="email" placeholder=""
+                        disabled>
                 </div>
                 <div class="mb-3">
                     <label for="phone" class="form-label">Phone</label>
-                    <input type="text" class="form-control form-control-lg rounded-pill" id="phone" placeholder="">
+                    <input type="text" class="form-control form-control-lg rounded-pill" id="phone" placeholder=""
+                        disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="display-name" class="form-label">Name</label>
+                    <input type="text" class="form-control form-control-lg rounded-pill" id="display-name"
+                        placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="avatar" class="form-label">Avatar URL</label>
@@ -55,7 +61,7 @@
 
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="./profile.js"></script>
 </body>
 
